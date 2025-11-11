@@ -1,0 +1,433 @@
+﻿<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NM Beauty</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #FCFFFF;
+            scroll-behavior: smooth; 
+        }
+
+        header {
+            width: 100%;
+        }
+
+        .header-top,
+        .header-middle,
+        .header-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #ccc;
+            background: white;
+        }
+
+        .header-top {
+            height: 30px;
+        }
+
+        .header-middle {
+            height: 80px;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .header-bottom {
+            height: 40px;
+            gap: 30px;
+        }
+
+            .header-bottom p {
+                margin: 0;
+                font-size: 14px;
+            }
+
+        .fashion-section {
+            text-align: center;
+        }
+
+        .fashion-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            letter-spacing: 4px;
+            color: #222;
+            margin-bottom: 40px;
+        }
+
+        .fashion-lines {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .fashion-lines::before,
+            .fashion-lines::after {
+                content: "";
+                display: block;
+                width: 100%;
+                max-width: 700px;
+                height: 1px;
+                background: #ccc;
+            }
+
+        .fashion-paragraphs {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+
+            .fashion-paragraphs a {
+                margin: 0;
+                font-size: 14px;
+                color: #555;
+                text-decoration: none;
+                cursor: pointer;
+                transition: color 0.3s;
+            }
+
+                .fashion-paragraphs a:hover {
+                    color: #000;
+                }
+
+        .razmak {
+            height: 500px;
+            background-color: whitesmoke;
+        }
+
+        .fashion-container {
+            position: relative;
+        }
+
+            .fashion-container .fashion-section {
+                position: sticky;
+                top: 0;
+                z-index: 900;
+                background-color: #FCFFFF;
+            }
+
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slides {
+            position: absolute;
+            width: 100%;
+            height: 90%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            animation: fade 15s infinite;
+        }
+
+        .slide1 {
+            background-image: url('s1.webp');
+            animation-delay: 0s;
+        }
+
+        .slide2 {
+            background-image: url('s2.webp');
+            animation-delay: 5s;
+        }
+
+        .slide3 {
+            background-image: url('s3.webp');
+            animation-delay: 10s;
+        }
+
+        @keyframes fade {
+            0% {
+                opacity: 0;
+            }
+
+            5% {
+                opacity: 1;
+            }
+
+            30% {
+                opacity: 1;
+            }
+
+            35% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .slide-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Playfair Display', serif;
+            font-size: 80px;
+            color: white;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+            text-align: center;
+            z-index: 10;
+        }
+
+        /* PARFEMI - mini galerija */
+        .mini-gallery-section {
+            text-align: center;
+            background-color: #FCFFFF;
+            padding: 60px 0;
+        }
+
+        .mini-gallery-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            letter-spacing: 3px;
+            color: #222;
+            margin-bottom: 40px;
+        }
+
+        .mini-gallery-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 10px 20px;
+            scrollbar-width: thin;
+            scrollbar-color: #ccc transparent;
+        }
+
+            .mini-gallery-scroll::-webkit-scrollbar {
+                height: 8px;
+            }
+
+            .mini-gallery-scroll::-webkit-scrollbar-thumb {
+                background: #bbb;
+                border-radius: 10px;
+            }
+
+            .mini-gallery-scroll img {
+                width: 250px;
+                height: 300px;
+                object-fit: cover;
+                border-radius: 15px;
+                flex-shrink: 0;
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+
+                .mini-gallery-scroll img:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+                }
+
+        /* NEWSLETTER */
+        .newsletter-section {
+            background-color: #F7FAFA;
+            text-align: center;
+            padding: 80px 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .newsletter-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: #222;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .newsletter-subtitle {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+            .newsletter-form input {
+                padding: 12px 20px;
+                font-size: 14px;
+                border: 1px solid #ccc;
+                border-radius: 30px;
+                width: 280px;
+                outline: none;
+                transition: border 0.3s;
+            }
+
+                .newsletter-form input:focus {
+                    border-color: #999;
+                }
+
+            .newsletter-form button {
+                background-color: #000;
+                color: #fff;
+                border: none;
+                padding: 12px 25px;
+                font-size: 14px;
+                border-radius: 30px;
+                cursor: pointer;
+                transition: background-color 0.3s, transform 0.3s;
+            }
+
+                .newsletter-form button:hover {
+                    background-color: #333;
+                    transform: scale(1.05);
+                }
+
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 20px 50px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-left h4 {
+            margin: 0 0 5px 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+        }
+
+        .footer-left p {
+            margin: 0;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .footer-right a {
+            margin-left: 15px;
+            display: inline-block;
+            transition: transform 0.3s, filter 0.3s;
+        }
+
+            .footer-right a:hover img {
+                transform: scale(1.2);
+                filter: brightness(1) invert(0.5);
+            }
+
+        @media (max-width: 600px) {
+            .newsletter-title {
+                font-size: 28px;
+            }
+
+            .newsletter-subtitle {
+                font-size: 14px;
+            }
+
+            .newsletter-form input {
+                width: 100%;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .footer-right a {
+                margin-left: 0;
+                margin-right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top"></div>
+        <div class="header-middle">
+            <img src="logo.png" style="width:200px;height:100px" alt="Logo">
+        </div>
+        <div class="header-bottom">
+            <a href="stranica.html" style="color:black;">Fashion</a>
+            <a href="Beaut.html" style="color:black;">Beauty</a>
+            <a href="lifestyle.html" style="color:black;">Living</a>
+
+        </div>
+    </header>
+
+    <div class="fashion-container">
+        <div class="fashion-section">
+            <div class="fashion-title">BEAUTY</div>
+            <div class="fashion-lines">
+                <div class="fashion-paragraphs">
+                    <a href="#skincare">Skin Care</a>
+                    <a href="#parfemi">Parfemi</a>
+                    <a href="#pretplata">Pretplata</a>
+                </div>
+            </div>
+        </div>
+        <div class="razmak"></div>
+    </div>
+
+    
+    <div id="skincare" class="slideshow-container">
+        <div class="slides slide1"></div>
+        <div class="slides slide2"></div>
+        <div class="slides slide3"></div>
+        <div class="slide-text">SKIN CARE</div>
+    </div>
+
+    
+    <div id="parfemi" class="mini-gallery-section">
+        <div class="mini-gallery-title">PARFEMI</div>
+        <div class="mini-gallery-scroll">
+            <img src="b1.webp" alt="img1">
+            <img src="b2.webp" alt="img2">
+            <img src="b3.webp" alt="img3">
+            <img src="b4.webp" alt="img4">
+            <img src="b5.webp" alt="img5">
+            <img src="b6.webp" alt="img6">
+            <img src="b7.webp" alt="img7">
+            <img src="b8.webp" alt="img8">
+        </div>
+    </div>
+
+    
+    <div id="pretplata" class="newsletter-section">
+        <h2 class="newsletter-title">PRETPLATI SE NA NAŠ NEWSLETTER</h2>
+        <p class="newsletter-subtitle">Budi prva koja će saznati o novim trendovima, savjetima i inspiraciji iz svijeta ljepote.</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Upiši svoj e-mail" required>
+            <button type="submit">Pretplati se</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <h4>NM Fashion</h4>
+                <p>Najnovije modne inspiracije i trendovi za vas.</p>
+            </div>
+            <div class="footer-right">
+                <a href="https://www.instagram.com" target="_blank"><img src="ig.png" alt="Instagram"></a>
+                <a href="https://www.facebook.com" target="_blank"><img src="fb.png" alt="Facebook"></a>
+                <a href="https://www.youtube.com" target="_blank"><img src="tt.png" alt="TikTok"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,442 @@
+﻿<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NM Living</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #FCFFFF;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            width: 100%;
+        }
+
+        .header-top,
+        .header-middle,
+        .header-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #ccc;
+            background: white;
+        }
+
+        .header-top {
+            height: 30px;
+        }
+
+        .header-middle {
+            height: 80px;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .header-bottom {
+            height: 40px;
+            gap: 30px;
+        }
+
+            .header-bottom p {
+                margin: 0;
+                font-size: 14px;
+            }
+
+        .fashion-section {
+            text-align: center;
+        }
+
+        .fashion-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            letter-spacing: 4px;
+            color: #222;
+            margin-bottom: 40px;
+        }
+
+        .fashion-lines {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .fashion-lines::before,
+            .fashion-lines::after {
+                content: "";
+                display: block;
+                width: 100%;
+                max-width: 700px;
+                height: 1px;
+                background: #ccc;
+            }
+
+        .fashion-paragraphs {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+
+            .fashion-paragraphs a {
+                margin: 0;
+                font-size: 14px;
+                color: #555;
+                text-decoration: none;
+                cursor: pointer;
+                transition: color 0.3s;
+            }
+
+                .fashion-paragraphs a:hover {
+                    color: #000;
+                }
+
+        .razmak {
+            height: 500px;
+            background-color: whitesmoke;
+        }
+
+        .fashion-container {
+            position: relative;
+        }
+
+            .fashion-container .fashion-section {
+                position: sticky;
+                top: 0;
+                z-index: 900;
+                background-color: #FCFFFF;
+            }
+
+
+
+
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 20px 50px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-left h4 {
+            margin: 0 0 5px 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+        }
+
+        .footer-left p {
+            margin: 0;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .footer-right a {
+            margin-left: 15px;
+            display: inline-block;
+            transition: transform 0.3s, filter 0.3s;
+        }
+
+            .footer-right a:hover img {
+                transform: scale(1.2);
+                filter: brightness(1) invert(0.5);
+            }
+
+        @media (max-width: 600px) {
+            .newsletter-title {
+                font-size: 28px;
+            }
+
+            .newsletter-subtitle {
+                font-size: 14px;
+            }
+
+            .newsletter-form input {
+                width: 100%;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .footer-right a {
+                margin-left: 0;
+                margin-right: 10px;
+            }
+        }
+
+        .lifestyle-section {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #FDFDFD;
+        }
+
+            .lifestyle-section h2 {
+                font-family: 'Playfair Display', serif;
+                font-size: 48px;
+                letter-spacing: 3px;
+                color: #222;
+                margin-bottom: 30px;
+            }
+
+            .lifestyle-section p {
+                max-width: 600px;
+                margin: 0 auto 40px;
+                font-size: 16px;
+                color: #555;
+            }
+
+
+        .selfcare-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+            .selfcare-cards .card {
+                width: 250px;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+
+                .selfcare-cards .card img {
+                    width: 100%;
+                    height: 200px;
+                    object-fit: cover;
+                }
+
+                .selfcare-cards .card p {
+                    padding: 10px;
+                    font-size: 14px;
+                    color: #555;
+                }
+
+                .selfcare-cards .card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+                }
+
+
+        @media (max-width: 600px) {
+            .selfcare-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .lifestyle-section h2 {
+                font-size: 36px;
+            }
+
+            .lifestyle-section p {
+                font-size: 14px;
+            }
+        }
+
+        .highlight-section {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #F9F9F9;
+            align-content: center;
+        }
+
+            .highlight-section h2 {
+                font-family: 'Playfair Display', serif;
+                font-size: 48px;
+                letter-spacing: 3px;
+                color: #222;
+                margin-bottom: 40px;
+            }
+
+        .highlight-container {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .highlight-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+            .highlight-card img {
+                border-radius: 15px;
+                object-fit: cover;
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+
+                .highlight-card img:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+                }
+
+            .highlight-card p {
+                margin-top: 10px;
+                font-size: 14px;
+                color: #555;
+            }
+
+
+            .highlight-card.large img {
+                width: 400px;
+                height: 800px;
+            }
+
+            .highlight-card.small img {
+                width: 200px;
+                height: 150px;
+            }
+
+
+        @media (max-width: 900px) {
+            .highlight-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+
+            .highlight-card.large img {
+                width: 300px;
+                height: 225px;
+            }
+
+            .highlight-card.small img {
+                width: 150px;
+                height: 112px;
+            }
+        }
+
+        .pic2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-right: 50px;
+            gap: 10px;
+            padding-top: 0px;
+        }
+
+
+            .pic2 img {
+                border-radius: 8px;
+            }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-top"></div>
+        <div class="header-middle">
+            <img src="logo.png" style="width:200px;height:100px" alt="Logo">
+        </div>
+        <div class="header-bottom">
+            <a href="stranica.html" style="color:black;">Fashion</a>
+            <a href="Beauty.hmtl.html" style="color:black;">Beauty</a>
+            <a href="lifestyle.html" style="color:black;">Living</a>
+        </div>
+    </header>
+
+    <div class="fashion-container">
+        <div class="fashion-section">
+            <div class="fashion-title">LIVING</div>
+            <div class="fashion-lines">
+                <div class="fashion-paragraphs">
+                    <a href="#selfcare">Self Care</a>
+                    <a href="#highlight">Istaknuto</a>
+                    <a href="#motivation">Motivacija</a>
+                </div>
+            </div>
+        </div>
+        <div class="razmak"></div>
+    </div>
+
+
+    <div id="selfcare" class="lifestyle-section">
+        <h2>SELF CARE</h2>
+        <p>Mali rituali za miran dan: meditacija, journaling i cozy momenti uz topli napitak.</p>
+        <div class="selfcare-cards">
+            <div class="card">
+                <img src="l1.jpg" alt="Meditacija">
+                <p>Meditacija za početak dana</p>
+            </div>
+            <div class="card">
+                <img src="l2.jpg" alt="Journaling">
+                <p>Journaling za fokus i mir</p>
+            </div>
+            <div class="card">
+                <img src="l3.jpg" alt="Cozy moment">
+                <p>Cozy moment</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="highlight" class="highlight-section">
+        <h2>ISTAKNUTO</h2>
+        <div class="highlight-container">
+            <div class="highlight-card small">
+                <img src="u2.webp" alt="Mala slika 1">
+                <p>Prelazak</p>
+            </div>
+            <div class="highlight-card large">
+                <img src="u1.webp" alt="Velika slika">
+                <p>Neven-Svečani cvijet dana mrtvih u Meksiku</p>
+            </div>
+            <div class="highlight-card small">
+                <img src="u4.webp" alt="Mala slika 2">
+                <p>Zemljani tonovi</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="motivation" class="highlight-section">
+        <h2>MOTIVACIJA</h2>
+        <div class="pic2">
+            <p style="font-size:18px;padding-left:50px;padding-right:50px;">
+                <b>Motivacija</b> je tema o kojoj se često govori i piše, mnogo je onih koji nude rešenje za problem demotivisanosti,<br>
+                mnogi su čak razvili i čitavo poslovanje posvećeno proučavanju i rešavanju ovog problema.<br>
+                Vrlo često sami ubijemo svoju motivaciju i ne započinjemo svoj zadatak samo zbog toga<br>
+                kako se osećamo u određenom momentu.<br>
+                Kada bi osećanja bila neophodna da se završe obaveze, mnogo ljudi uopšte ne bi ni odlazilo na posao.<br>
+                Negativne, demotivišuće emocije se prevazilaze zato što drugog izbora nema. Isto <br>
+                važi i za sve one stvari kojima želimo da se bavimo, ali nas neka emocija, na primer strah, sputava u tome.<br>
+            </p>
+            <img src="m1.jpg" style="height:500px;padding-right:50px;" alt="slika2">
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <h4>NM Fashion</h4>
+                <p>Najnovije modne inspiracije i trendovi za vas.</p>
+            </div>
+            <div class="footer-right">
+                <a href="https://www.instagram.com" target="_blank"><img src="ig.png" alt="Instagram"></a>
+                <a href="https://www.facebook.com" target="_blank"><img src="fb.png" alt="Facebook"></a>
+                <a href="https://www.youtube.com" target="_blank"><img src="tt.png" alt="TikTok"></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+
